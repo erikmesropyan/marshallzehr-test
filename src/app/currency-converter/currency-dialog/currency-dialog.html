@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Currency information</h1>
+<div mat-dialog-content>
+  <ng-container *ngIf="data.value;else noData">
+    <div>{{data?.description}}</div>
+    <div>date: {{data?.date | date}}</div>
+    <div>rate: {{data?.value}}</div>
+  </ng-container>
+  <ng-template #noData>
+    <div>No data</div>
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="">Ok</button>
+</div>
+
