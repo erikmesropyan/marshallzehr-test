@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 
@@ -13,7 +13,7 @@ import {Subject, takeUntil} from 'rxjs';
   templateUrl: './currency-converter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CurrencyConverterComponent implements OnInit, OnDestroy {
+export class CurrencyConverterComponent implements OnDestroy {
 
   public readonly currencies = Object.keys(Currencies);
   public readonly CANADIAN_CURRENCY = CANADIAN_CURRENCY;
@@ -26,10 +26,6 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
               private readonly currencyService: CurrencyService,
               private readonly cdr: ChangeDetectorRef,
               private readonly dialog: MatDialog) {
-  }
-
-  ngOnInit(): void {
-    this.initForm();
   }
 
   ngOnDestroy() {
