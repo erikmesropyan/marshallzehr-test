@@ -20,7 +20,7 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
   public currencyFormGroup: FormGroup = this.initForm();
   public isLoading = false;
 
-  private destroy$ = new Subject<void>();
+  private destroy$ = new Subject<boolean>();
 
   constructor(private readonly formBuilder: FormBuilder,
               private readonly currencyService: CurrencyService,
@@ -33,7 +33,7 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.destroy$.next();
+    this.destroy$.next(true);
     this.destroy$.complete();
   }
 
